@@ -1,4 +1,4 @@
-package 2DEngine;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,7 +8,7 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
-public class UiComponent extends JComponent implements Component{
+public class UiComponent extends JComponent{
 	Rectangle2D rect;
 	public void UiComonent(int x, int y, int width, int height)
 	{

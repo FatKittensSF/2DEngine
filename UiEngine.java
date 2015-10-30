@@ -1,5 +1,4 @@
 
-package 2DEngine;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -30,12 +29,12 @@ public class UiEngine extends JPanel
 		components.add(comp);
 	}
 	
-	public UiComponent Componentcontains(int x, int y)
-	{
-		for(UiComponent comp: components)
-		{
-			if(comp.contains(x, y));
-		}
-	}
+//	public UiComponent Componentcontains(int x, int y)
+//	{
+//		for(UiComponent comp: components)
+//		{
+//			if(comp.contains(x, y));
+//		}
+//	}
 
 }

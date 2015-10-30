@@ -1,17 +1,31 @@
-package 2DEngine;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 public class RenderEngine extends JPanel{
+	ArrayList<Rectangle2D.Double> arr;
+	ArrayList<RenderComponent> comps;
 	int width, height;
 	public RenderEngine(int width, int height)
 	{
 		this.width = width;
 		this.height = height;
+		init();
+	}
+	
+	private void init()
+	{		
+		arr = new ArrayList<Rectangle2D.Double>();
+		comps = new ArrayList<RenderComponent>();
+		
+		
+		addComponent(new RenderComponent(0,0,400,400));
+		finalize();
 	}
 	public void paintComponent(Graphics g)
 	{
@@ -23,6 +37,32 @@ public class RenderEngine extends JPanel{
 		render.setClip(background);
 		render.setColor(Color.gray);
 		render.fill(background);
+		
+		renderComponents(render);
+	
+		
+	}
+	
+	public void addComponent(RenderComponent r)
+	{
+		comps.add(r);
+	}
+	
+	public void finalize()
+	{
+		for (int x = 0; x < comps.size();x++)
+		{
+			arr.add(comps.get(x).getObject());
+		}
+	}
+	
+	public void renderComponents(Graphics2D render)
+	{
+		render.setColor(Color.black);
+		for(Rectangle2D.Double x: arr)
+		{
+			render.fill(x);
+		}
 	}
 
 }

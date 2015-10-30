@@ -1,4 +1,4 @@
-package 2DEngine;
+
 import javax.swing.JFrame;
 
 public class Engine {
