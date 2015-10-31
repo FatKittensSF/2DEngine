@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class RenderEngine extends JPanel{
-	ArrayList<Rectangle2D.Double> arr;
-	ArrayList<RenderComponent> comps;
 	int width, height;
 	public RenderEngine(int width, int height)
 	{
@@ -20,12 +18,7 @@ public class RenderEngine extends JPanel{
 	
 	private void init()
 	{		
-		arr = new ArrayList<Rectangle2D.Double>();
-		comps = new ArrayList<RenderComponent>();
 		
-		
-		addComponent(new RenderComponent(0,0,400,400));
-		finalize();
 	}
 	public void paintComponent(Graphics g)
 	{
@@ -39,30 +32,14 @@ public class RenderEngine extends JPanel{
 		render.fill(background);
 		
 		renderComponents(render);
+		ResourceManager manager = new ResourceManager();
 	
 		
 	}
 	
-	public void addComponent(RenderComponent r)
-	{
-		comps.add(r);
-	}
-	
-	public void finalize()
-	{
-		for (int x = 0; x < comps.size();x++)
-		{
-			arr.add(comps.get(x).getObject());
-		}
-	}
-	
 	public void renderComponents(Graphics2D render)
 	{
-		render.setColor(Color.black);
-		for(Rectangle2D.Double x: arr)
-		{
-			render.fill(x);
-		}
+		
 	}
 
 }

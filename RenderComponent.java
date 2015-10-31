@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 public class RenderComponent extends JComponent{
 	Rectangle2D.Double rect;
+	String objectName,imageName,imageDefinition,fileLocation,renderLocation;
 	public RenderComponent(double x, double y, double width, double height)
 	{
 		
