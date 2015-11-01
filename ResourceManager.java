@@ -34,7 +34,7 @@ ArrayList<String> fileLocations;
 				else if (sCurrentLine.equals("script:"))currentFileLoad = 1;
 				else if (currentFileLoad==0)
 				{
-					sCurrentLine
+				
 				}
 				System.out.println("added: " + sCurrentLine);
 				fileLocations.add(sCurrentLine);
