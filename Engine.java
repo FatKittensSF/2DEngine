@@ -13,7 +13,6 @@ public class Engine {
 		frame.add(new UiEngine(500,500));
 		frame.add(new RenderEngine(500,500));
 		frame.setVisible(true);
-		ResourceManager manager = new ResourceManager();
 	}
 
 }

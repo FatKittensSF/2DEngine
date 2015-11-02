@@ -3,12 +3,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 public class RenderEngine extends JPanel{
 	int width, height;
+	ArrayList<BufferedImage> images;
+	ArrayList<RenderComponent> comps;
+	private ResourceManager manager;
+	
 	public RenderEngine(int width, int height)
 	{
 		this.width = width;
@@ -18,6 +23,9 @@ public class RenderEngine extends JPanel{
 	
 	private void init()
 	{		
+		manager = new ResourceManager();
+		comps = manager.getComponents();
+		updateImages();
 		
 	}
 	public void paintComponent(Graphics g)
@@ -32,14 +40,37 @@ public class RenderEngine extends JPanel{
 		render.fill(background);
 		
 		renderComponents(render);
-		ResourceManager manager = new ResourceManager();
-	
+		
+		
 		
 	}
 	
 	public void renderComponents(Graphics2D render)
 	{
-		
+		for(BufferedImage x : images)
+		{
+			render.drawImage(x, 200, 200, 200+222, 300+561, 0, 0, 222, 561, null);
+			System.out.println("drawing umage to screen");
+		}
+	}
+	
+	public void updateImages()
+	{
+		images = new ArrayList<BufferedImage>();
+		for(RenderComponent x : comps)
+		{
+			images.add(x.getImage());
+		}
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
